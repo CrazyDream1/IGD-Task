@@ -21,9 +21,9 @@ public class UI_ResAddAnim : MonoBehaviour
             return;
         }
         ResourcesManager resourcesManagerScript = resourceManager.GetComponent<ResourcesManager>();
-        resourcesManagerScript.addBlocks += AnimAddBlocks;
-        resourcesManagerScript.addCoins += AnimAddCoins;
-        resourcesManagerScript.addDiamonds += AnimAddDiamonds;
+        resourcesManagerScript.addBlocksEvent += AnimAddBlocks;
+        resourcesManagerScript.addCoinsEvent += AnimAddCoins;
+        resourcesManagerScript.addDiamondsEvent += AnimAddDiamonds;
     }
 
     void OnDisable(){
@@ -32,9 +32,9 @@ public class UI_ResAddAnim : MonoBehaviour
             return;
         }
         ResourcesManager resourcesManagerScript = resourceManager.GetComponent<ResourcesManager>();
-        resourcesManagerScript.addBlocks -= AnimAddBlocks;
-        resourcesManagerScript.addCoins -= AnimAddCoins;
-        resourcesManagerScript.addDiamonds -= AnimAddDiamonds;
+        resourcesManagerScript.addBlocksEvent -= AnimAddBlocks;
+        resourcesManagerScript.addCoinsEvent -= AnimAddCoins;
+        resourcesManagerScript.addDiamondsEvent -= AnimAddDiamonds;
     }
 
     public void AnimAddDiamonds(int amount){

@@ -17,9 +17,9 @@ public class ResourcesManager : MonoBehaviour
     
     public delegate void AddResources(int amount);
 
-    public event AddResources addDiamonds;
-    public event AddResources addCoins;
-    public event AddResources addBlocks;
+    public event AddResources addDiamondsEvent;
+    public event AddResources addCoinsEvent;
+    public event AddResources addBlocksEvent;
 
     void Start()
     {
@@ -33,9 +33,9 @@ public class ResourcesManager : MonoBehaviour
             return;
         }
         Server serverScript = server.GetComponent<Server>();
-        serverScript.addDiamonds += AddDiamonds;
-        serverScript.addCoins += AddCoins;
-        serverScript.addBlocks += AddBlocks;
+        serverScript.addDiamondsEvent += AddDiamonds;
+        serverScript.addCoinsEvent += AddCoins;
+        serverScript.addBlocksEvent += AddBlocks;
     }
 
     void OnDisable(){
@@ -44,40 +44,40 @@ public class ResourcesManager : MonoBehaviour
             return;
         }
         Server serverScript = server.GetComponent<Server>();
-        serverScript.addDiamonds -= AddDiamonds;
-        serverScript.addCoins -= AddCoins;
-        serverScript.addBlocks -= AddBlocks;
+        serverScript.addDiamondsEvent -= AddDiamonds;
+        serverScript.addCoinsEvent -= AddCoins;
+        serverScript.addBlocksEvent -= AddBlocks;
     }
     private void AddAll(){
-        AddDiamonds(addAmount);
-        AddCoins(addAmount);
-        addBlocks(addAmount);
+        addDiamondsEvent(addAmount);
+        addCoinsEvent(addAmount);
+        addBlocksEvent(addAmount);
     }
 
     public void AddDiamonds(int diamondsAmount)
     {
         diamonds += diamondsAmount;
-        if (addDiamonds != null)
+        if (addDiamondsEvent != null)
         {
-            addDiamonds(diamondsAmount);
+            addDiamondsEvent(diamondsAmount);
         }
     }
 
     public void AddCoins(int coinsAmount)
     {
         coins += coinsAmount;
-        if (addCoins != null)
+        if (addCoinsEvent != null)
         {
-            addCoins(coinsAmount);
+            addCoinsEvent(coinsAmount);
         }
     }
 
     public void AddBlocks(int blocksAmount)
     {
         blocks += blocksAmount;
-        if (addBlocks != null)
+        if (addBlocksEvent != null)
         {
-            addBlocks(blocksAmount);
+            addBlocksEvent(blocksAmount);
         }
     }
 }

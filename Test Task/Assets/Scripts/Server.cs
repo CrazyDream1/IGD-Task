@@ -14,26 +14,25 @@ public class Server : MonoBehaviour
 
     public delegate void AddResources(int amount);
 
-    public event AddResources addDiamonds;
-    public event AddResources addCoins;
-    public event AddResources addBlocks;
-    public event AddResources addXP;
+    public event AddResources addDiamondsEvent;
+    public event AddResources addCoinsEvent;
+    public event AddResources addBlocksEvent;
+    public event AddResources addXPEvent;
 
     public void AddDiamonds()
     {
         if (diamondsText == null)
         {
-            print($"Diamond Text field is not choosen");
+            Debug.LogWarning($"Diamond Text field is not choosen");
             return;
         }
         if (diamondsText.text == "")
         {
             return;
         }
-        print(diamondsText.text);
-        if (addDiamonds != null)
+        if (addDiamondsEvent != null)
         {
-            addDiamonds(int.Parse(diamondsText.text));
+            addDiamondsEvent(int.Parse(diamondsText.text));
         }
         diamondsText.text = "";
     }
@@ -42,17 +41,16 @@ public class Server : MonoBehaviour
     {
         if (coinsText == null)
         {
-            print($"Coins Text field is not choosen");
+            Debug.LogWarning($"Coins Text field is not choosen");
             return;
         }
         if (coinsText.text == "")
         {
             return;
         }
-        print(coinsText.text);
-        if (addCoins != null)
+        if (addCoinsEvent != null)
         {
-            addCoins(int.Parse(coinsText.text));
+            addCoinsEvent(int.Parse(coinsText.text));
         }
         coinsText.text = "";
     }
@@ -61,17 +59,16 @@ public class Server : MonoBehaviour
     {
         if (blocksText == null)
         {
-            print($"Bolocks Text field is not choosen");
+            Debug.LogWarning($"Bolocks Text field is not choosen");
             return;
         }
         if (blocksText.text == "")
         {
             return;
         }
-        print(blocksText.text);
-        if (addBlocks != null)
+        if (addBlocksEvent != null)
         {
-            addBlocks(int.Parse(blocksText.text));
+            addBlocksEvent(int.Parse(blocksText.text));
         }
         blocksText.text = "";
     }
@@ -80,17 +77,16 @@ public class Server : MonoBehaviour
     {
         if (XPText == null)
         {
-            print($"XP Text field is not choosen");
+            Debug.LogWarning($"XP Text field is not choosen");
             return;
         }
         if (XPText.text == "")
         {
             return;
         }
-        print(XPText.text);
-        if (addXP != null)
+        if (addXPEvent != null)
         {
-            addXP(int.Parse(XPText.text));
+            addXPEvent(int.Parse(XPText.text));
         }
         XPText.text = "";
     }

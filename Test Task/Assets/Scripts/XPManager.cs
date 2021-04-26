@@ -20,7 +20,7 @@ public class XPManager : MonoBehaviour
             return;
         }
         Server serverScript = server.GetComponent<Server>();
-        serverScript.addXP += AddXP;
+        serverScript.addXPEvent += AddXP;
     }
 
     void OnDisable(){
@@ -29,7 +29,7 @@ public class XPManager : MonoBehaviour
             return;
         }
         Server serverScript = server.GetComponent<Server>();
-        serverScript.addXP -= AddXP;
+        serverScript.addXPEvent -= AddXP;
     }
 
     private void AddXP(int XPAmount)
