@@ -23,6 +23,7 @@ public class PlayerCollider : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().enabled = false;
             cubesManager.Finish();
+            stickman.GetComponent<Animator>().SetTrigger("Finish");
             Debug.Log("Finish");
         }
     }

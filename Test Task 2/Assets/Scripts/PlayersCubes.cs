@@ -18,6 +18,7 @@ public class PlayersCubes : MonoBehaviour
             cubesManager.RemoveCube(this.gameObject);
             if (cubesManager.IsEmpty())
             {
+                stickman.GetComponent<Animator>().SetTrigger("Loss");
                 cubesManager.Loss();
                 Debug.Log("Game End");
             }
