@@ -29,7 +29,7 @@ public class PlayersCubes : MonoBehaviour
             cubePickUp.gameObject.SetActive(false);
             stickman.transform.position = new Vector3(stickman.transform.position.x, stickman.transform.position.y + 1, stickman.transform.position.z);
             //stickman.transform.DOMoveY(stickman.transform.position.y + 1 * cubePickUp.numberOfCubes, pickUpTime);
-            //animator.SetTrigger("Jump");
+            animator.SetTrigger("Jump");
             cubesManager.AddCube(cubePickUp.numberOfCubes);
             Debug.Log("Pick up a cube(s)");
         }

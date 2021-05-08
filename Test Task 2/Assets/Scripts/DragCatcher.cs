@@ -6,9 +6,14 @@ using UnityEngine.EventSystems;
 public class DragCatcher : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
     public Controller playerController;
+    public float sensitivity = 1000f;
+    public Camera camera;
     public void OnDrag(PointerEventData eventData)
     {
-        playerController.SetTargetPosition(eventData.delta.x);
+        //float x = camera.ScreenToViewportPoint(eventData.delta).x;
+        var delta = (eventData.delta.x / Screen.width) * sensitivity;
+        print(delta);
+        playerController.SetTargetPosition(delta);
     }
 
     public void OnPointerDown(PointerEventData eventData)

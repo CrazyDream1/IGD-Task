@@ -1806,6 +1806,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313055196}
   m_CullTransparentMesh: 1
+--- !u!20 &1344344213 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8640725572867823777, guid: 018451366393ed64f9b55ead7c2376b2, type: 3}
+  m_PrefabInstance: {fileID: 8640725572273184121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1371036330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2258,6 +2263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 275337457}
+  sensitivity: 400
+  camera: {fileID: 1344344213}
 --- !u!114 &1497305791
 MonoBehaviour:
   m_ObjectHideFlags: 0
